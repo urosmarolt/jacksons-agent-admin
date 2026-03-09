@@ -1,0 +1,92 @@
+:root {
+  --brand-amber: #d88626;
+  --brand-amber-lt: #fdf6ee;
+  --brand-amber-md: #f7e9d4;
+  --brand-ink: #1a1410;
+  --brand-muted: #8a7d6b;
+  --brand-border: #ede7dc;
+  --brand-bg: #faf8f5;
+  --brand-surface: #ffffff;
+  --brand-script: "Playfair Display", serif;
+  --brand-sans: "DM Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--brand-sans);
+  background: var(--brand-bg);
+  color: var(--brand-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle warm grain texture on body */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ddd3c4;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-amber);
+}
+
+/* Playfair italic for section labels */
+.brand-label {
+  font-family: var(--brand-script);
+  font-style: italic;
+  color: var(--brand-amber);
+}
+
+/* Stat card hover lift */
+.stat-card {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(180, 140, 80, 0.12) !important;
+}
+
+/* Table row hover */
+tr.clickable-row {
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+tr.clickable-row:hover td {
+  background: #fdf6ee !important;
+}
+
+/* Drawer message bubbles */
+.msg-bubble-admin {
+  background: linear-gradient(135deg, #fff8ee, #fdf2e0);
+  border: 1px solid #f0ddb8;
+}
+
+.msg-bubble-admin img,
+.mantine-Paper-root img {
+  max-width: 120px;
+  height: auto;
+  border-radius: 6px;
+}
