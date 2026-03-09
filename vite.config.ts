@@ -15,6 +15,7 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
+    allowedHosts: ["dashboard.cybixagent.co.uk"],
     host: true,
     port: 3003,
   },
